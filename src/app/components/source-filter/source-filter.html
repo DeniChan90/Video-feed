@@ -1,0 +1,8 @@
+<div class='inline-block source-filter'>
+	<label>Filter By Source :</label>
+	<select ng-model="srcFilterVal">
+		<option ng-repeat='option in SrcFilterCtrl.filterOptions' value='{{option.value}}'>
+			{{option.label}}
+		</option>
+	</select>
+</div>

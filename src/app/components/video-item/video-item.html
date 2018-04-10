@@ -1,0 +1,22 @@
+<div class='video-wrapper' ng-if='!videoCtrl.videoDataMissing(video)'>
+	<div class='video-info'>
+		<span class='fl-left'>{{video.title}}</span>
+		<span class='fl-right'>{{video.views | shortNumber}} views</span>
+	</div>
+
+
+	<iframe  ng-if='video.source !== "url"' ng-src="{{videoCtrl.getVideoUrl(video)}}" frameborder="0" allowfullscreen></iframe>
+	<video ng-if='video.source === "url"' ng-src="{{videoCtrl.getVideoUrl(video)}}" controls></video>
+</div>
+
+<div class='video-wrapper video-error alert alert-warning' ng-if='videoCtrl.videoDataMissing(video)' ng-switch="video.source">
+	<p ng-switch-when="url">
+        Video is missing.
+    </p>
+    <p ng-switch-when="facebook">
+       Facebook post is missing.
+    </p>
+    <p ng-switch-when="Youtube">
+       Youtube video is missing.
+    </p>
+</div>

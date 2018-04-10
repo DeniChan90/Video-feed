@@ -1,0 +1,9 @@
+<header>
+	<span class='page-title'>VIDEO FEED</span>
+
+	<src-filter class='source-filter' apply-filter={{srcFilterVal}}></src-filter>
+</header>
+
+<main>
+	<video-item ng-repeat="video in app.videos | filter:srcFilterVal" video='video'></video-item>
+</main>
